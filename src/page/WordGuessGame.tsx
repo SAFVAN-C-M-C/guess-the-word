@@ -26,9 +26,9 @@ const WordGuessGame: React.FC = () => {
     let shiftPressed = false;
     let inputSequence = "";
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Shift") {
+      if (event.key === "Shift" || event.key==="*") {
         if (shiftPressed) {
-          // If Shift was already pressed once, start listening for the phrase
+          // If Shift or * was already pressed once, start listening for the phrase
           inputSequence = "";
         }
         shiftPressed = true;
