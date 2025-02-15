@@ -192,12 +192,25 @@ const WordGuessGame: React.FC = () => {
             </Button>
           )}
           {gameOver && winner ? (
-            <Typography variant="body1" className="text-green-500 mt-2">
-              You got it🎉🎉! The word was: <strong>{targetWord}</strong>
-            </Typography>
+            attempts.length === 1 ? (
+              <Typography variant="body1" className="text-green-500 mt-2">
+                🤯 Incredible! You got it on the very first try! The word was:{" "}
+                <strong>{targetWord}</strong> 🎉🔥
+              </Typography>
+            ) : attempts.length === 4 ? (
+              <Typography variant="body1" className="text-green-500 mt-2">
+                😲 That was close! You got it in the nick of time! The word was:{" "}
+                <strong>{targetWord}</strong> 🎉⏳
+              </Typography>
+            ) : (
+              <Typography variant="body1" className="text-green-500 mt-2">
+                🎉 Great job! You got it! The word was:{" "}
+                <strong>{targetWord}</strong>
+              </Typography>
+            )
           ) : gameOver ? (
             <Typography variant="body1" className="text-red-500 mt-2">
-              Game Over! The word was: <strong>{targetWord}</strong>
+              Game Over! The word was: <strong>{targetWord}</strong> 😢
             </Typography>
           ) : null}
           <Button
